@@ -1,5 +1,26 @@
-const BookShelf = ({ books, newBook, handleInputChange, handleSubmit }) => {
+import { useState } from "react";
 
+const BookShelf = () => {
+  const [books, setBooks] = useState([])
+  const [newBook, setNewBook] = useState({
+    title: '',
+    author: '',
+    genre: '',
+    year: ''
+  });
+
+  const handleInputChange = (event) => {
+    const { name,value } = event.target;
+      setNewBook({ ...newBook, 
+      [name]: value
+    })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setBooks([...books, newBook]); 
+    setNewBook({ title: '', author: '', genre: '', year: '' }); 
+  };
   
   return (
     <div className="bookshelfDiv">
