@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import './App.css';
-import Bookshelf from './components/BookShelf/Bookshelf';
+import BookShelf from './components/BookShelf/BookShelf';
 
 const App = () => {
   const [books, setBooks] = useState([])
@@ -25,9 +25,15 @@ const App = () => {
   return (
     <>
       <h1>My BookShelf</h1>
-      <Bookshelf />
+      <BookShelf
+        books={books}
+        newBook={newBook}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+      />
     </>
   );
 };
 
 export default App;
+
